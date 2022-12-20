@@ -60,7 +60,7 @@ const Authentication = () => {
         <TopColumn>
           <Timer>{formattedTime}</Timer>
           <Description>
-            Insira o código de verificação que te enviamos
+            Enter the verification code that we sent
           </Description>
           <CodeInput value={keyboardInput} length={CODE_LENGTH} />
         </TopColumn>
@@ -77,18 +77,16 @@ const Authentication = () => {
         onPress={navigation.goBack}
       />
       <ResendCode
-        style={{ bottom: insets.bottom + 15 }}
+        style={{ bottom: insets.bottom + 25, backgroundColor: "#F8F8F8" }}
         disabled={!!timer}
         onPress={() => {
           setTimer(RESEND_TIMEOUT_IN_SECONDS);
           setKeyboardInput("");
         }}
       >
-        <Underline>
-          <Text fontSize="large" fontWeight="bold">
-            Reenviar o código
-          </Text>
-        </Underline>
+        <Text fontSize="large" fontWeight="bold">
+          Resend code
+        </Text>
       </ResendCode>
     </Container>
   );
