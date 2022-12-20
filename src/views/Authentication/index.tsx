@@ -7,6 +7,7 @@ import { Title, Highlight } from "./styles";
 import Logo from "~images/Logo.svg";
 import HeroText from "./components/HeroText";
 import PhoneInput from "./components/PhoneInput";
+import PhoneInput2 from "./components/PhoneInput2";
 import { KeyboardAvoidingView, Platform } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { ThemeContext } from "styled-components/native";
@@ -66,15 +67,14 @@ const Authentication = () => {
             We will send you a 4-digit code to authorize your account. if
             don't have one yet, let's create it
           </Description>
-          <PhoneInput
-            enablesReturnKeyAutomatically
-            returnKeyType="send"
+          <PhoneInput2
             onSubmitEditing={handleLogin}
-            blurOnSubmit={false}
-            placeholder="(99) 99999-9999"
-          />
+            returnKeyType="send"
+            enablesReturnKeyAutomatically
+          ></PhoneInput2>
+
           <Button loading={loading} onPress={handleLogin}>
-            Continuar
+            Continue
           </Button>
         </BottomCard>
       </KeyboardAvoidingView>
