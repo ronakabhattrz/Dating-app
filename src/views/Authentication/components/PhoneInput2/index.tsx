@@ -1,16 +1,12 @@
-import { Logs } from 'expo'
-
-Logs.enableExpoCliLogging()
 import React, { useCallback, useState, useRef } from "react";
 import { TextInputProps  } from "react-native";
 import { Container } from "./styles";
 import PhoneInput from "react-native-phone-number-input";
 
 const PhoneInput2: React.FC<TextInputProps> = (props) => {
+  const [value, setValue] = useState("");
+  const [formattedValue, setFormattedValue] = useState("");
   const phoneInput = useRef<PhoneInput>(null);
-
-  const [phoneNumber, setPhoneNumber] = useState("");
-  console.log('No:'+phoneNumber);
   return (
         <Container>
           <PhoneInput
@@ -18,7 +14,7 @@ const PhoneInput2: React.FC<TextInputProps> = (props) => {
               defaultCode="US"
               layout="first"
               withDarkTheme
-              value={phoneNumber}
+              value={value}
               keyboardType="phone-pad"
               textInputProps={{ maxLength: 10 }}
               textContainerStyle={{
@@ -32,7 +28,10 @@ const PhoneInput2: React.FC<TextInputProps> = (props) => {
                 backgroundColor: '#fff'
               }}
               onChangeText={(text) => {
-                setPhoneNumber(text);
+                setValue(text);
+              }}
+              onChangeFormattedText={(text) => {
+                setFormattedValue(text);
               }}
               {...(props as any)}
             />

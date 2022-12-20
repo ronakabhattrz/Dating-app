@@ -71,8 +71,9 @@ const Authentication = () => {
             onSubmitEditing={handleLogin}
             returnKeyType="send"
             enablesReturnKeyAutomatically
+            blurOnSubmit={false}
+            placeholder="9999999999"
           ></PhoneInput2>
-
           <Button loading={loading} onPress={handleLogin}>
             Continue
           </Button>
